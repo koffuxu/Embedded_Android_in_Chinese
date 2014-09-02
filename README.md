@@ -46,10 +46,10 @@ Translate Embedded Android book with co-work
 * Preface
 * 1. Introduction  
  * History      √by[wiikii]()
- * Features and Characteristics         √by[wiikii] 
- * Development Model            √by[wiikii]
- * Differences With "Classic" Open Source Projects      √by[CodeDiving]
- * Feature Inclusion, Roadmaps, and New Releases        √by[CodeDiving]
+ * Features and Characteristics         √by[wiikii]() 
+ * Development Model            √by[wiikii]()
+ * Differences With "Classic" Open Source Projects      √by[CodeDiving]()
+ * Feature Inclusion, Roadmaps, and New Releases        √by[CodeDiving]()
  * Ecosystem    √by[CodeDiving]
  * A Word on the Open Handset Alliance 
  * Getting "Android" 
