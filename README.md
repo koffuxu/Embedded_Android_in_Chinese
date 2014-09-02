@@ -5,7 +5,7 @@ Embedded_Android_in_Chinese
 
 ##描述:
 
-co-work QQ群: > 15997841
+co-work QQ群: 15997841
 
 Translate Embedded Android book with co-work
 
@@ -45,12 +45,12 @@ Translate Embedded Android book with co-work
 
 * Preface
 * 1. Introduction  
- * History      by[wiikii]
- * Features and Characteristics         by[wiikii] 
- * Development Model            by[wiikii]
- * Differences With "Classic" Open Source Projects      by[CodeDiving]
- * Feature Inclusion, Roadmaps, and New Releases        by[CodeDiving]
- * Ecosystem    by[CodeDiving]
+ * History      √by[wiikii]()
+ * Features and Characteristics         √by[wiikii] 
+ * Development Model            √by[wiikii]
+ * Differences With "Classic" Open Source Projects      √by[CodeDiving]
+ * Feature Inclusion, Roadmaps, and New Releases        √by[CodeDiving]
+ * Ecosystem    √by[CodeDiving]
  * A Word on the Open Handset Alliance 
  * Getting "Android" 
  * Legal Framework 
@@ -101,9 +101,9 @@ Translate Embedded Android book with co-work
  * System Startup 
 
 * 3. AOSP Jumpstart 
- * Getting the AOSP      by[koffuxu] 
- * Inside the AOSP       by[koffuxu]
- * Build Basics          by[koffuxu]
+ * Getting the AOSP      √by[koffuxu](https://github.com/koffuxu) 
+ * Inside the AOSP       √by[koffuxu](https://github.com/koffuxu)
+ * Build Basics          √by[koffuxu](https://github.com/koffuxu)
  * Build System Setup 
  * Building Android 
  * Running Android 
