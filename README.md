@@ -5,9 +5,8 @@ Embedded_Android_in_Chinese
 
 ##描述:
 
-co-work QQ群: 15997841
-
-Translate Embedded Android book with co-work
+* co-work QQ群: 15997841
+* <Embedded Android>book pdf 文档位于source/下面，请依据这个文档进行翻译
 
 
 ##当前进度
