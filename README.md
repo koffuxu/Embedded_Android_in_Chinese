@@ -3,13 +3,12 @@ Embedded_Android_in_Chinese
 
 
 
-#描述:
+##描述:
 
 co-work QQ群: > 15997841
+
 Translate Embedded Android book with co-work
 
-
-#欢迎你参与协同翻译
 
 ##当前进度
 
@@ -18,7 +17,7 @@ Translate Embedded Android book with co-work
 
 ##github参与简明流程
 
-*初始化项目
+* 初始化项目
 1. 进入项目地址，先fork这个项目到你的项目中
 2. 把你fork的项目clone到你本地
 3. `git branch dev` 新建一个分支
@@ -30,18 +29,19 @@ Translate Embedded Android book with co-work
 9. 如果你完成修改，使用 `git push -u origin dev` 提交更新
 10. 然后进入你的github网站申请pull request
 
-*日常更新，之后更新使用如下命令
+* 日常更新，之后更新使用如下命令
 
 1. `git remote update upstream`  把koffuxu的修改更新到本地
 2. `git rebase upstream/master` 更新合并
 
-*更多Github操作信息参考：http://blog.csdn.net/koffuxu/article/details/39010803
+* 更多Github操作信息参考：http://blog.csdn.net/koffuxu/article/details/39010803
 
 ##约定
+
 - 使用Markdown进入文本格式，Markdwon[帮助文档](<https://help.github.com/articles/markdown-basics>)
 -  
 
-#目录
+##目录
 
 * Preface
 * 1. Introduction 
@@ -100,7 +100,7 @@ Translate Embedded Android book with co-work
  * Stock AOSP Packages 
  * System Startup 
 
-*3. AOSP Jumpstart 
+* 3. AOSP Jumpstart 
  * Getting the AOSP 
  * Inside the AOSP 
  * Build Basics 
@@ -110,7 +110,7 @@ Translate Embedded Android book with co-work
  * Using ADB 
  * Mastering the Emulator 
 
-*4. The Build System
+* 4. The Build System
  * Comparisons With Other Build Systems 
  * Architecture 
  * Configuration 
