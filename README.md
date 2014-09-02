@@ -29,7 +29,7 @@ Translate Embedded Android book with co-work
 9. 如果你完成修改，使用 `git push -u origin dev` 提交更新
 10. 然后进入你的github网站申请pull request
 
-* 日常更新，之后更新使用如下命令
+日常更新，之后更新使用如下命令
 
 1. `git remote update upstream`  把koffuxu的修改更新到本地
 2. `git rebase upstream/master` 更新合并
@@ -38,19 +38,19 @@ Translate Embedded Android book with co-work
 
 ##约定
 
-- 使用Markdown进入文本格式，Markdwon[帮助文档](<https://help.github.com/articles/markdown-basics>)
--  
+* 使用Markdown进入文本格式，Markdwon[帮助文档](<https://help.github.com/articles/markdown-basics>)
+  
 
-##目录
+##认领目录
 
 * Preface
-* 1. Introduction 
- * History
- * Features and Characteristics 
- * Development Model 
- * Differences With "Classic" Open Source Projects 
- * Feature Inclusion, Roadmaps, and New Releases 
- * Ecosystem 
+* 1. Introduction  
+ * History      by[wiikii]
+ * Features and Characteristics         by[wiikii] 
+ * Development Model            by[wiikii]
+ * Differences With "Classic" Open Source Projects      by[CodeDiving]
+ * Feature Inclusion, Roadmaps, and New Releases        by[CodeDiving]
+ * Ecosystem    by[CodeDiving]
  * A Word on the Open Handset Alliance 
  * Getting "Android" 
  * Legal Framework 
@@ -101,9 +101,9 @@ Translate Embedded Android book with co-work
  * System Startup 
 
 * 3. AOSP Jumpstart 
- * Getting the AOSP 
- * Inside the AOSP 
- * Build Basics 
+ * Getting the AOSP      by[koffuxu] 
+ * Inside the AOSP       by[koffuxu]
+ * Build Basics          by[koffuxu]
  * Build System Setup 
  * Building Android 
  * Running Android 
