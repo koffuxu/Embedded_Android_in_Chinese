@@ -11,7 +11,7 @@ Embedded_Android_in_Chinese
 
 ##当前进度
 
-> **章节认领中......**
+> **小徐孤独翻译中......**
 
 
 ##github参与简明流程
