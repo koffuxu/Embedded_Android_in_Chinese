@@ -3,20 +3,23 @@ Embedded_Android_in_Chinese
 
 
 
-##描述:
+## 描述:
 
-* co-work QQ群: 15997841
+* co-work基地:可夫小子
+[公众号](!./source/)
 * <Embedded Android>book pdf 文档位于source/下面，请依据这个文档进行翻译
+ - <Embedded_Android.pdf>:简单版本
+ - <Embedded_Android-full-ver.pdf>:完全版本
 
 
 ##当前进度
 
-> **小徐孤独翻译中......**
+> **很高兴你能参加这个翻译，但无如何，我会努力成这个任务的,不能让其成为我的技术债务**
 
 
-##github参与简明流程
+## github参与简明流程
 
-* 初始化项目
+- 初始化项目
 1. 进入项目地址，先fork这个项目到你的项目中
 2. 把你fork的项目clone到你本地
 3. `git branch dev` 新建一个分支
@@ -28,12 +31,14 @@ Embedded_Android_in_Chinese
 9. 如果你完成修改，使用 `git push -u origin dev` 提交更新
 10. 然后进入你的github网站申请pull request
 
-日常更新，之后更新使用如下命令
+- 日常更新，之后更新使用如下命令
 
 1. `git remote update upstream`  把koffuxu的修改更新到本地
 2. `git rebase upstream/master` 更新合并
 
-* 更多Github操作信息参考：http://blog.csdn.net/koffuxu/article/details/39010803
+- 更多Github操作信息参考：http://blog.csdn.net/koffuxu/article/details/39010803
+
+
 
 ##约定
 
