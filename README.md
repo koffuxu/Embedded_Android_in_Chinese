@@ -5,21 +5,21 @@ Embedded_Android_in_Chinese
 
 ## 描述:
 
-* co-work基地:可夫小子
+- co-work基地:可夫小子
 [公众号](!./source/)
-* <Embedded Android>book pdf 文档位于source/下面，请依据这个文档进行翻译
+- <Embedded Android>book pdf 文档位于source/下面，请依据这个文档进行翻译
  - <Embedded_Android.pdf>:简单版本
  - <Embedded_Android-full-ver.pdf>:完全版本
 
 
-##当前进度
+## 当前进度
 
 > **很高兴你能参加这个翻译，但无如何，我会努力成这个任务的,不能让其成为我的技术债务**
 
 
 ## github参与简明流程
 
-- 初始化项目
+### 初始化项目
 1. 进入项目地址，先fork这个项目到你的项目中
 2. 把你fork的项目clone到你本地
 3. `git branch dev` 新建一个分支
@@ -31,8 +31,7 @@ Embedded_Android_in_Chinese
 9. 如果你完成修改，使用 `git push -u origin dev` 提交更新
 10. 然后进入你的github网站申请pull request
 
-- 日常更新，之后更新使用如下命令
-
+### 日常更新，之后更新使用如下命令
 1. `git remote update upstream`  把koffuxu的修改更新到本地
 2. `git rebase upstream/master` 更新合并
 
@@ -40,15 +39,15 @@ Embedded_Android_in_Chinese
 
 
 
-##约定
+## 约定
 
-* 使用Markdown进入文本格式，Markdwon[帮助文档](<https://help.github.com/articles/markdown-basics>)
+- 使用Markdown进入文本格式，Markdwon[帮助文档](<https://help.github.com/articles/markdown-basics>)
   
 
-##认领目录
+## 认领目录
 
-* Preface
-* 1. Introduction  
+Preface
+1. Introduction  
  * History      √by[wiikii]()
  * Features and Characteristics         √by[wiikii]() 
  * Development Model            √by[wiikii]()
@@ -68,7 +67,7 @@ Embedded_Android_in_Chinese
  * Compliance Test Suite 
  * Development Setup and Tools 
 
-* 2. Internals Primer
+2. Internals Primer
  * App Developer's View 
  * Android Concepts 
  * Framework Intro 
@@ -104,7 +103,7 @@ Embedded_Android_in_Chinese
  * Stock AOSP Packages 
  * System Startup 
 
-* 3. AOSP Jumpstart 
+3. AOSP Jumpstart 
  * Getting the AOSP      √by[koffuxu](https://github.com/koffuxu) 
  * Inside the AOSP       √by[koffuxu](https://github.com/koffuxu)
  * Build Basics          √by[koffuxu](https://github.com/koffuxu)
@@ -114,7 +113,7 @@ Embedded_Android_in_Chinese
  * Using ADB 
  * Mastering the Emulator 
 
-* 4. The Build System
+4. The Build System
  * Comparisons With Other Build Systems 
  * Architecture 
  * Configuration 
