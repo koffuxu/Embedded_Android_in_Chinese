@@ -5,8 +5,7 @@ Embedded_Android_in_Chinese
 
 ## 描述
 
-- co-work基地:可夫小子
-![公众号](source/wechat.jgp)
+- co-work基地:可夫小子![公众号](source/wechat.jpg)
 - <Embedded Android>book pdf 文档位于source/下面，请依据这个文档进行翻译
     - 第一期：<Embedded_Android.pdf>:简单版本
     - 第二期：<Embedded_Android-full-ver.pdf>:完全版本
