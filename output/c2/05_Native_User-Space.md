@@ -86,14 +86,42 @@ init的主要配置文件存储在*/init.rc*中，同时也会有一个特定设
 
 在大部分Linux发行版中，udev热插拔事件由udevd守护进程处理。而安卓中，这些事件由作为安卓init部分构建的*ueventd*守护进程处理，通过符号链接将*/sbin/ueventd*链至*/init*来访问。想要知道*/dev*中创建了那些条目，*ueventd*依赖于*/ueventd.rc*和*/ueventd.**device_name**.rc*文件
 
+#### 工具箱 Toolbox
 
----------------------------
-#### 工具箱
+如根文件系统目录层级一般，大部分的Linux发行版由FHS在/bin与/sbin路径下都存在着许多二进制文件。这些目录下的二进制文件由网上很多不同站点、不同的包编译而成。在一个嵌入式系统中，处理如此多不同的包或需要如此多分裂的二进制文件都不甚合理。
+Much like the root filesystem's directory hierarchy, there are essential binaries on most Linux system, listed by the FHS for the /bin and /sbin directories. In most Linux distributions, the binaries in those directories are built from separate packages coming from different sites on the net. In an embedded system, it doesn't make sense to have to deal with so many packages, nor necessarily have that many separate binaries.
 
+经典的BusyBox包采取的方法是编译一个独立的二进制文件，这个文件实际上是个巨大的switch-case结构，通过检查命令行中第一个参数，决定执行哪个响应功能。这些指令再软链到busybox命令中。例如当输入ls时，实际上还是在执行BusyBox，但BusyBox根据ls这个参数决定它的行为，就如同在标准命令行中运行这个命令一样。
+The approach taken by the classic BusyBox package is to build a single binary that essentially has what amounts to a huge switch-case , which checks for the first parameter on the command line and executes the corresponding functionality. All commands are then made to be symbolic links the busybox command. So when you type ls, for example, you're actually invoking BusyBox. But since BusyBox's behavior is predicated on the first parameter on the command line and that parameter is ls, it will behave as if you had run that command from a standard Linux shell.
 
-#### 守护进程
+安卓没有使用BusyBox，但引入了自己的工具——Toolbox。基本功能也是软链至Toolbox的命令中。不过Toolbox不如BusyBox强大，如果你使用过BusyBox，那基本会对Toolbox很失望。重新创造一个类似的工具似乎和许可有关，毕竟BusyBox是GPL许可。另外，一些安卓开发者们的目标是提供一个基于shell的简洁调试工具，并非与BusyBox一样完全取代shell。而使用BSD许可的Toolbox可以让制造商们在不需要向客户提供源码的前提下进行修改和分发。
+Android doesn't use BusyBox, but includes its own tool, Toolbox, that basically functions in the very same way using symbolic links to the toolbox command. Unfortunately, Toolbox is nowhere as feature-full as BusyBox. In fact, if you've ever used BusyBox, you're likely going to be very disappointed when using Toolbox. The rationale for creating a tool from scratch in this case seems to make most sense when viewed from the licensing angle, BusyBox being GPL licensed. In addition, some Android developers have stated that their goal was to create a minimal tool for shell-based debugging and not to provide a full replacement for shell tools as BusyBox does. At any rate, Toolbox is BSD licensed and manufacturers can therefore modify it and distribute it without having to track the modifications made by their developers or making any sources available to their customers.
 
-#### 命令行应用
+你或许还是希望使用BusyBox替换Toolbox。如果由于许可原因，不希望将BusyBox作为定版软件的一部分，也可以暂时将BusyBox打包进系统用来调试，再在释放版本时移除。
+You might still want to include BusyBox alongside Toolbox to benefit from its capabilities. If you don't want to ship it as part of your final product because of its licensing, you could include it temporarily during development and strip it in the final production release. We'll cover this in more detail later.
+#### 守护进程 Daemons
 
+作为系统启动的一部分，安卓的init会启动一些守护进程，并跑完整个系统的生命周期。而如*adbd*，则需要取决于全局属性的设置了。
+As part of the system startup, Android's init starts a few key daemons that continue to run throughout the lifetime of the system. Some daemon, such as *adbd*, are started on damand, depending on changes to global properties.
 
-**未完待续**
+*表 2-4. 安卓原生守护进程*
+*Table 2-4. Native Android daemons*
+Daemon|Description
+-|-
+servicemanager|The Binder Context Manager. Acts as an index of all Binder services running in the system.
+vold|The volume manager. Handles the mounting and formatting of mounted volumes and images.
+netd|The network manager. Handles tethering, NAT, PPP, PAN, and USB RNDIS.
+debugerd|The debugger daemon. Invoked by Bionic's linker when a process crashes to do a postmortem analysis. Allows *gdb* to connect from the host.
+Zygote|The Zygote process. It's responsible for warming up the system's cache and starting the System Server. We'll discuss it in more detail later in this chapter.
+mediaserver|The Media server. Hosts most media-related services. We'll discuss it in more detail later in this chapter.
+dbus-daemon|The D-Bus message daemon. Acts as an inter mediary between D-Bus users. Have a look at its man page for more information.
+bluetooth|The Bluetooth daemon. Manages Bluetooth devices. Provides services through D-Bus.
+installd|The *.apk* installtion daemon. Takes care of installing and uninstalling *.apk* files and managing the related filesystem entries.
+keystore|The KeyStore daemon. Manages an encrypted key-pair value store for cryptographic keys, SSL certs for instance.
+system_server|Android's System Server. This daemon hosts the vast majority of system services that run in Android.
+adbd|The ADB daemon. Manages all aspects of the connection between the target and the host's *adb* command.
+
+#### 命令行组件 Command-Line Utilities
+
+安卓根文件系统中分布着超过150个命令行组件。*/system/bin*中就包含了一大部分，也有一些“额外”的存在*/system/xbin*与*/sbin*中。*/system/bin*中有大约50个组件是*/system/bin/toolbox*的软链。余下的主要来自安卓系统框架，AOSP引入的外部项目或AOSP的其他地方。在第五章可以花时间看看这些二进制文件。
+More than 150 command-line utilities are scattered over Android's root filesystem. */system/bin* contains the majority of them, but some "extras" are in */system/xbin* and a handful are in */sbin*. Around 50 of those in */system/bin* are actually symbolic links to */system/bin/toolbox*. The majority of the rest come from the Android base framewrok, from external projects merged into the AOSP, or from various other parts of the AOSP. We'll get the chance to cover the various binaries found in the AOSP in more detail in Chapter 5.
