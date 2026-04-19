@@ -44,12 +44,23 @@ Embedded_Android_in_Chinese
 - 使用Markdown进入文本格式，Markdwon[帮助文档](<https://help.github.com/articles/markdown-basics>)
   
 
+## 翻译进度摘要
+
+| 章节 | 状态 | 备注 |
+|------|------|------|
+| 1.3 Features and Characteristics | ✅ 完成 | 2026.04 |
+| 4.1 Comparisons With Other Build Systems | 🔄 翻译中 | 2026.04 |
+
+> 本项目支持 AI 辅助翻译，详见 [.claude/skills/pdf-book-translate/](.claude/skills/pdf-book-translate/)
+
+---
+
 # 目录认领
 
 Preface
 1. Introduction  
     1. History                               √by[wiikii]()
-    1. Features and Characteristics          √by[wiikii]()
+    1. Features and Characteristics          √完成
     1. Development Model                     √by[wiikii]()
         * Differences With "Classic" Open Source Projects      √by[CodeDiving]()
         * Feature Inclusion, Roadmaps, and New Releases        √by[CodeDiving]()
@@ -114,7 +125,7 @@ Preface
     1. Mastering the Emulator
 
 4. The Build System
-    1. Comparisons With Other Build Systems
+    1. Comparisons With Other Build Systems      √翻译中
     1. Architecture
         * Configuration
         * envsetup.sh
