@@ -48,8 +48,12 @@ Embedded_Android_in_Chinese
 
 | 章节 | 状态 | 备注 |
 |------|------|------|
-| 1.3 Features and Characteristics | ✅ 完成 | 2026.04 |
-| 4.1 Comparisons With Other Build Systems | 🔄 翻译中 | 2026.04 |
+| 1.1~1.9 Introduction | ✅ 全部完成 | 2026.04 |
+| 2.1~2.9 Internals Primer | ✅ 大部分完成 | 2026.04 |
+| 3.1~3.6 AOSP Jumpstart | ✅ 大部分完成 | 2026.04 |
+| 4.1 Comparisons With Other Build Systems | 🔄 已翻译 | 2026.04 |
+| 4.2~4.4 Architecture, Build Recipes | 🔴 未开始 | |
+| 附录 A/B/C | 🔴 未开始 | |
 
 > 本项目支持 AI 辅助翻译，详见 [.claude/skills/pdf-book-translate/](.claude/skills/pdf-book-translate/)
 
