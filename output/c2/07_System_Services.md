@@ -69,7 +69,7 @@ Found 50 servics:
 
 如之前所解释的，Binder机制用于系统服务底层面向对象的远程方法调用。一个系统进程通过Binder调用系统服务，首先需要拿到这个服务的句柄。例如，Binder会让应用开发人员在电源管理中通过**WakeLock**类的**acquire()**方法请求一个休眠唤醒锁，在这个调用完成前，开发人员首先需要获取电源管理服务的句柄。在下一章节可以看到，应用实际上将获取句柄的细节隐藏起来，抽象出了一个接口给开发者，如图2-5所示，所有系统服务句柄查找都是通过服务管理器完成的。
 
-![Service Manager and Binder interaction](https://upload-images.jianshu.io/upload_images/2424151-1643d2e062f3ad33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Service Manager and Binder interaction](images/fig-2-5.png)
 *图2-5. 服务管理器与绑定器交互*
 
 

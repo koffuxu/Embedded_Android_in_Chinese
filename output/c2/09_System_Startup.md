@@ -7,7 +7,7 @@
 
 内核初始化与硬件密切相关，但它的目的就是尽早地让CPU开始执行C代码。一旦满足条件，内核就能够执行与架构独立的**start_kernel()**方法，初始化一些子系统，并为内核驱动启动"init"方法。内核启动时一大片日志信息就是在这几步中打印的。随后内核开始挂载根文件系统并启动初始化进程。
 
-![Android's boot sequence](https://upload-images.jianshu.io/upload_images/2424151-d9c02705a63ece60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Android's boot sequence](images/fig-2-6.png)
 *图2-6 安卓启动流程*
 
 初始化成功后，安卓开始执行*/init.rc*中的指令并构建起如系统路径的一系列环境变量，创建挂载点，挂载文件系统，设置OOM，启动原生守护进程。我们已经介绍过一些安卓中的原生守护进程，但也值得再花些精力讨论Zygote。Zygote的特殊之处在于它是负责启动应用的守护进程，它会整合应用程序共用的组件以缩短应用打开的时间。初始化并没有直接启动Zygote，而是通过*app_process*命令在ART时启动，ART启动系统第一个Dalvik虚拟机并告诉它调用Zygote的**main()**方法。

@@ -29,7 +29,7 @@
 
 无论是哪种方式，都是为了装载硬件支持的共享库，响应硬件的系统服务主要负责加载和连接共享库。这类系统服务负责与其他系统服务协调，使硬件和系统其余部分以及供开发人员使用的API保持一致。如果你需要为一个给定的硬件添加支持，你需要尽可能详细地了解这部分相关的系统服务内部结构。通常系统服务分为两部分，java实现大部分安卓相关的内容，另一部分则由C完成，主要负责支持共享库及其他底层功能的硬件交互。
 
-![Android's "Hardware Abstraction Layer"](https://i.bmp.ovh/imgs/2019/07/8075b50ec1af0b9c.png)
+![Android's "Hardware Abstraction Layer"](images/fig-2-3.png)
 
 #### 装载与接口方法 Loading and Interfacing Methods
 
