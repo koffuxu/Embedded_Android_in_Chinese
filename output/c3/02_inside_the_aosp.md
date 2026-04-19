@@ -102,7 +102,7 @@
 
 正如你所见，*prebuild*和*external*是目录树中最大的两个文件夹，接近整个代码的75%。有趣的是，这两个文件夹是由开放源码项目组成的，它们包括各种GNU版本的工具链，Kernel镜像文件，通用库和像OpenSSl和WebKit等等之类的框架层。*libcore*也是另外一个开放源码项目，Apache Harmony。本质上，这个进一步证明，Android是一个高度依赖于其它开源生涯项目而存在的系统。但，Android仍然包含了许多“原生”（或接近“原生”）的代码；大约有800MB。
 
-![figure_3_1](../images/3-1_androids_architecture.png)
+![figure_3_1](images/3-1_androids_architecture.png)
 
 *图 3-1. Android构架*
 
