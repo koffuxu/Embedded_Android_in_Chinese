@@ -1,132 +1,163 @@
 ---
 name: pdf-book-translate
-description: 将整本英文 PDF 书籍翻译为中文 Markdown。按章节提取 PDF 文本，生成结构化的中文 Markdown 文件。触发条件：用户要求翻译整本 PDF 书籍、将 PDF 翻译为 Markdown、批量翻译 PDF 章节。
+description: 将英文 PDF 书籍全自动翻译为中文 Markdown。按章节提取 PDF 文本和图片，生成结构化中文 Markdown 文件。触发条件：用户要求翻译整本 PDF 书籍、将 PDF 翻译为 Markdown、批量翻译 PDF 章节。
 ---
 
 # PDF 整书翻译技能
 
-## 核心目标
+## 功能概述
 
-将英文 PDF 书籍全自动翻译为中文 Markdown，保留章节结构、标题层级、列表、表格等格式，按章节目录组织输出文件。
+| 功能 | 说明 |
+|------|------|
+| 文本提取 | 从 PDF 按章节提取英文原文（pdfplumber） |
+| 图片提取 | 提取 PDF 中所有嵌入图片（PyMuPDF） |
+| 表格提取 | 提取 PDF 中的表格并转为 Markdown |
+| 批量处理 | 自动识别目录结构，按章分组输出 |
+| 翻译工作流 | 英文 Markdown → 中文 Markdown，保留格式 |
+
+## 依赖安装
+
+```bash
+pip install pdfplumber pymupdf --break-system-packages
+```
 
 ## 执行流程
 
-### 1. 解析 PDF 结构
+### 步骤 1：分析 PDF 结构
 
+先检查 PDF 基本信息（页数、是否有可提取图片）：
 ```python
-import pdfplumber
+import fitz
 
-def extract_toc_and_chapters(pdf_path):
-    """从 PDF 中提取目录结构和每个章节的页码范围"""
-    with pdfplumber.open(pdf_path) as pdf:
-        # 提取目录页（通常是前几页）
-        toc_pages = []
-        for i, page in enumerate(pdf.pages[:5]):
-            text = page.extract_text()
-            if text and ('Chapter' in text or 'CHAPTER' in text or '目录' in text):
-                toc_pages.append((i, text))
+doc = fitz.open("book.pdf")
+print(f"总页数: {len(doc)}")
 
-        # 提取全文用于分段
-        full_text = ""
-        for page in pdf.pages:
-            text = page.extract_text()
-            if text:
-                full_text += f"\n--- PAGE {page.page_number} ---\n" + text
-
-    return toc_pages, full_text
+# 统计有图片的页
+img_pages = set()
+for i, page in enumerate(doc):
+    if page.get_images():
+        img_pages.add(i)
+print(f"有图片的页: {sorted(img_pages)[:10]}...")
 ```
 
-### 2. 识别章节边界
+### 步骤 2：提取文本和图片
 
-- 搜索 `CHAPTER X` 或 `Chapter X: Title` 模式的标题
-- 通过目录页获取章节标题和页码对应关系
-- 每个章节从其标题所在页开始，到下一章标题出现为止
+使用配套脚本一次性完成文本 + 图片提取：
 
-### 3. 分段提取文本
-
-```python
-def split_into_chapters(full_text, toc_entries):
-    """根据 TOC 将全文拆分为各章节"""
-    chapters = []
-    for i, (title, page_num) in enumerate(toc_entries):
-        start_marker = f"CHAPTER {i+1}" if str(i+1).isdigit() else title
-        end_marker = toc_entries[i+1][0] if i+1 < len(toc_entries) else None
-
-        # 提取章节内容
-        start_idx = full_text.find(start_marker)
-        end_idx = full_text.find(end_marker, start_idx) if end_marker else len(full_text)
-        chapter_text = full_text[start_idx:end_idx]
-        chapters.append((title, chapter_text))
-    return chapters
+```bash
+python3 .claude/skills/pdf-book-translate/pdf_book_translate.py \
+    <pdf_path> \
+    <output_dir> \
+    [start_page] [end_page]
 ```
 
-### 4. 翻译（调用翻译提示词）
+**输出结构：**
+```
+output_dir/
+├── c1_ChapterName.md    # 各章节英文原文
+├── c2_ChapterName.md
+├── ...
+└── images/              # 提取的图片
+    ├── p022_001_xxx.jpg  # 页码_序号_hash.扩展名
+    └── ...
+```
 
-对每个章节应用以下翻译规则：
+### 步骤 3：建立图片引用映射
+
+脚本会在每个章节 Markdown 末尾追加图片引用块：
+```markdown
+## 图片
+
+![图 1 (PDF第22页)](images/p022_001_xxx.png)
+![图 2 (PDF第22页)](images/p022_002_xxx.png)
+```
+
+### 步骤 4：翻译 Markdown
+
+使用 translate-markdown-zh 技能将英文 Markdown 译为中文：
+- 读取英文 Markdown 文件
+- 保留标题层级、粗体、斜体、列表、表格、代码块格式
+- 链接标题翻译，正文转中文
+- 保留图片路径不变
+- 输出 `原文件名-zh.md`
+
+## 翻译提示词
+
+将以下英文 Markdown 内容重写为流畅的简体中文：
 
 ```
 请将以下英文内容重写成通俗流畅、引人入胜的简体中文。
 
 核心要求：
-- 读者与风格：面向技术读者的风格，清晰易懂
+- 读者与风格：面向技术读者，清晰易懂，像讲故事而非写论文
 - 准确第一：核心事实、数据和逻辑必须与原文完全一致
 - 行文流畅：优先使用地道的中文语序，英文长句拆解为中文短句
 - 术语标准：专业术语使用行业公认的标准翻译，第一次出现时括号加注英文原文
-- 保留格式：保持原文的标题层级、粗体、斜体、列表、表格等 Markdown 格式
-- 适当解读：对于技术术语或文化差异导致的难懂内容做注释，用（**...**）包裹
+- 保留格式：原文的标题层级、粗体、斜体、列表、表格等 Markdown 格式原样保留
+- 适当解读：对于专业术语或文化差异导致的难懂内容做注释，用（**...**）包裹
 - 代码块：代码内容默认不翻译，仅翻译注释或说明文字
+- 不编造：不添加原文不存在的数据、引用或结论
 ```
 
-### 5. 输出文件结构
+## 表格处理
 
-```
-output/
-├── c1_chapter_name.md      # Chapter 1
-├── c2_chapter_name.md      # Chapter 2
-├── ...
-├── toc.md                  # 目录索引
-└── metadata.md            # 书籍元信息（标题、作者、翻译日期等）
-```
-
-### 6. 表格提取
-
-PDF 中的表格需要特殊处理：
+PDF 中的表格用 pdfplumber 提取后转 Markdown：
 
 ```python
-def extract_tables_from_page(page):
-    """从 PDF 页面提取表格"""
-    tables = page.extract_tables()
-    # 返回列表形式的表格数据 [[row1], [row2], ...]
-    return tables
+import pdfplumber
 
-def tables_to_markdown(tables):
-    """将表格转换为 Markdown 格式"""
-    md_tables = []
-    for table in tables:
-        if not table:
-            continue
-        # 生成 Markdown 表格
-        header = table[0]
-        rows = table[1:]
-        md = "| " + " | ".join(str(h) for h in header) + " |\n"
-        md += "| " + " | ".join(["---"] * len(header)) + " |\n"
-        for row in rows:
-            md += "| " + " | ".join(str(c) if c else "" for c in row) + " |\n"
-        md_tables.append(md)
-    return md_tables
+with pdfplumber.open("book.pdf") as pdf:
+    for page in pdf.pages:
+        tables = page.extract_tables()
+        for table in tables:
+            if not table:
+                continue
+            header = table[0]
+            rows = table[1:]
+            md = "| " + " | ".join(str(h).strip() if h else "" for h in header) + " |\n"
+            md += "| " + " | ".join(["---"] * len(header)) + " |\n"
+            for row in rows:
+                md += "| " + " | ".join(str(c).strip() if c else "" for c in row) + " |\n"
+            print(md)
 ```
 
-## 注意事项
+## 常见问题
 
-- PDF 扫描件（图片）无法提取文本，需要 OCR 处理
-- 代码块、图表标题、页眉页脚等需要人工校验
-- 翻译过程中跳过版权页、空白页等非内容页
-- 如果 PDF 目录不完整或页码不准，需要手动调整章节分段
+### 1. PDF 是扫描件（无文本层）
+- 现象：`page.extract_text()` 返回空
+- 解决：需要 OCR 处理（pytesseract + pdf2image），不在本技能范围内
 
-## 翻译质量自检
+### 2. 图片提取失败（FlateDecode 压缩）
+- 原因：pypdf 对某些压缩格式支持不完整
+- 解决：使用 PyMuPDF（fitz），本技能已内置
 
-完成后对每个章节检查：
-1. 标题是否正确对应原文章节
-2. 段落大意是否与原文一致
-3. 术语翻译是否统一
-4. 格式（列表、表格、代码块）是否保留
+### 3. PDF 目录不完整或页码不准
+- 解决：手动指定页码范围 `--start-page 10 --end-page 50`
+
+### 4. 翻译后图片不显示
+- 检查：确认图片保存在 `images/` 子目录，Markdown 中引用路径正确
+- 注意：翻译时图片路径不变，只移动文件到中文版本目录
+
+## 工作流程示例
+
+```
+1. 提取 PDF 原文 + 图片
+   python3 pdf_book_translate.py book.pdf output/
+
+2. 查看生成的章节文件和图片
+   ls output/
+   ls output/images/ | wc -l  # 查看图片数量
+
+3. 对每个英文 Markdown 翻译
+   读取 output/c1_Introduction.md
+   翻译为中文
+   保存为 output/c1_Introduction-zh.md
+
+4. 整理最终目录结构
+   output/
+   ├── c1_Introduction-zh.md   # 中文译文
+   ├── c2_SecondChapter-zh.md
+   ├── images/                 # 图片（引用路径不变）
+   │   └── ...
+   └── book_zh.md             # 可选：合并为单文件
+```
