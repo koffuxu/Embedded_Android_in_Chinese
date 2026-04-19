@@ -56,7 +56,12 @@ Embedded_Android_in_Chinese
 | 4.3 Build Recipes | ✅ 完成 | 2026.04 |
 | 4.4 Basic AOSP Hacks | ✅ 完成 | 2026.04 |
 | 5.1~5.10 Hardware Primer | ✅ 完成 | 2026.04 |
-| 附录 A/B/C | 🔴 未开始 | |
+| 6.1~6.x Android Framework | ✅ 完成 | 2026.04 |
+| 附录 A Legacy User-Space | ✅ 完成 | 2026.04 |
+| 附录 B Adding Support for New Hardware | ✅ 完成 | 2026.04 |
+| 附录 C Customizing Default Lists of Packages | ✅ 完成 | 2026.04 |
+| 附录 D Default init.rc Files | ✅ 完成 | 2026.04 |
+| 附录 E Resources | ✅ 完成 | 2026.04 |
 
 > 本项目支持 AI 辅助翻译，详见 [.claude/skills/pdf-book-translate/](.claude/skills/pdf-book-translate/)
 
@@ -157,3 +162,33 @@ Preface
         * Adding a Native Library
         * Adding a Device
         * Adding an App Overlay
+
+5. Hardware Primer
+    1. Embedded System Architecture
+    1. The Baseband Processor
+    1. Memory
+    1.闪存存储
+    1. NAND vs. NOR
+    1. NAND
+    1. NOR
+    1. 串行闪存
+    1. eMMC 和 eMCP
+    1. Development Setup
+    1. 评估板
+
+6. Android Framework
+    1. 什么是"Android框架层"？
+    1. 框架层启动
+    1. 系统服务
+    1. 启动动画
+    1. Dex优化
+    1. 应用启动
+    1. 工具和命令
+    1. 支持守护进程
+    1. 硬件抽象层
+
+附录 A: Legacy User-Space
+附录 B: Adding Support for New Hardware
+附录 C: Customizing Default Lists of Packages
+附录 D: Default init.rc Files
+附录 E: Resources
