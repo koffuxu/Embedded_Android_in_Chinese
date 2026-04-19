@@ -55,7 +55,7 @@ Embedded_Android_in_Chinese
 | 4.2 Architecture | ✅ 完成 | 2026.04 |
 | 4.3 Build Recipes | ✅ 完成 | 2026.04 |
 | 4.4 Basic AOSP Hacks | ✅ 完成 | 2026.04 |
-| 5.1~5.10 Native User-Space | ✅ 完成 | 2026.04 |
+| 5.1~5.10 Hardware Primer | ✅ 完成 | 2026.04 |
 | 附录 A/B/C | 🔴 未开始 | |
 
 > 本项目支持 AI 辅助翻译，详见 [.claude/skills/pdf-book-translate/](.claude/skills/pdf-book-translate/)
