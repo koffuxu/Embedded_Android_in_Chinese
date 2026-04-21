@@ -1,3 +1,12 @@
-title: 补充：原生用户空间（重复稿）
+title: 第6章 原生用户空间
 nav:
-  - 06_Native_User-Space.md
+  - "原生用户空间": 00_原生用户空间.md
+  - "文件系统": 01_文件系统.md
+  - "编译系统与文件系统": 02_编译系统与文件系统.md
+  - "ADB": 03_ADB.md
+  - "Android 命令行": 04_Android_命令行.md
+  - "核心原生实用程序与守护进程": 05_核心原生实用程序和守护进程.md
+  - "Init": 06_Init.md
+  - "ueventd": 07_ueventd.md
+  - "启动徽标": 08_启动徽标.md
+# 说明：保留原始合并稿 06_Native_User-Space.md（不在导航中），便于对照
