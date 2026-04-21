@@ -1,7 +1,7 @@
 > 翻译：[Ross.Zeng](https://github.com/zengrx)
 > 校对：
 
-### Linux内核
+# Linux 内核
 
 Linux内核是所有传统上标记为Linux发行版的中心部分，包含了如Ubuntu、Fedora、Debian这些主流发行版。虽然linux内核归档在香草版本中提供，但大多数发行版在发布给用户之前都打上自己的补丁去修复漏洞，或是提高性能。安卓也一样，开发人员们也修复了内核来满足他们的需求。
 

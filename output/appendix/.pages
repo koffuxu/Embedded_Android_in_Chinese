@@ -1,0 +1,7 @@
+title: 附录
+nav:
+  - "附录 A：遗留用户空间": A/appendix_a_legacy_user-space.md
+  - "附录 B：为新硬件添加支持": B/appendix_b_adding_support_for_new_hardware.md
+  - "附录 C：自定义默认包列表": C/appendix_c_customizing_the_default_lists_of_packages.md
+  - "附录 D：默认 init.rc 文件": D/appendix_d_default_init_rc_files.md
+  - "附录 E：资源": E/appendix_e_resources.md

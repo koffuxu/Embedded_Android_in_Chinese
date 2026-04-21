@@ -1,4 +1,4 @@
-历史
+# 历史
 
 故事要从2002年Google创史人Larry Page和Sergey Brin参加的在斯坦福的一次关于Danger公司发明的Sidekick手机的研发过程的一次讲课开始。讲课的是当时Danger公司的CEO Andy Rubin。Sidekick手机是第一个多功能,可以上网的设备。下课后，Larry Page走到Andy Rubin身边查看Sidekick，惊喜的发现Google已经被列为默认的搜索引擎。不久后，Larry Page跟Sergey Brin成为了Sidekick的用户。
 

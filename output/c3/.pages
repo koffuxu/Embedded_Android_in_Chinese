@@ -1,1 +1,6 @@
-title: 第3章 AOSP Jumpstart
+title: 第3章 AOSP 初探
+nav:
+  - "AOSP 初探": 00_aosp_jumpstart.md
+  - "获取 AOSP": 01_gettings_the_aosp.md
+  - "AOSP 内部": 02_inside_the_aosp.md
+  - "编译基础": 03_build_basics.md

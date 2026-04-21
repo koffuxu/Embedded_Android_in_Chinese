@@ -1,1 +1,12 @@
-title: 第2章 Internals Primer
+title: 第2章 内部入门
+nav:
+  - "内部入门": 00_internals_primer.md
+  - "应用开发者视角": 01_app_developer_s_view.md
+  - "总体架构": 02_Overall_Architecture.md
+  - "Linux 内核": 03_Linux_Kernel.md
+  - "硬件支持": 04_Hardware_Support.md
+  - "原生用户空间": 05_Native_User-Space.md
+  - "Dalvik 与 Java": 06_Dalvik_and_Android_s_Java.md
+  - "系统服务": 07_System_Services.md
+  - "AOSP 默认应用包": 08_Stock_AOSP_Packages.md
+  - "系统启动": 09_System_Startup.md

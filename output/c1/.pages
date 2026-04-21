@@ -1,1 +1,11 @@
 title: 第1章 引言
+nav:
+  - "引言": 01_Introduction.md
+  - "历史": 02_History.md
+  - "功能和特点": 03_Features_and_Characteristics.md
+  - "开发模式": 04_Development_Model.md
+  - "生态": 05_Ecosystem.md
+  - "获得 \"Android\"": 06_Getting_Android.md
+  - "法律框架": 07_Legal_Framework.md
+  - "硬件与兼容性要求": 08_Hardware_and_Compliance_Requirements.md
+  - "开发环境与工具": 09_Development_Setup_and_Tools.md

@@ -1,7 +1,7 @@
 > 翻译：[koffuxu](https://github.com/koffuxu)
 > 校对：[Ross.Zeng](https://github.com/zengrx)
 
-### 应用开发者观点
+# 应用开发者观点
 
 鉴于Android开发API不同于其它已经存在的API，包含其它在Linux世界的事，这是非常重要的，发一点时间从应用开发者的角度来理解“Android”看起来是什么，就算是一个研究过AOSP的人来说，这都不是一件容易的事。作为一个以Android为系统的嵌入式设备的开发者，你也许没有理解Android的应用开发API的特质，但是你也许有同事了解。如果也没有，你不妨与应用开发者分享一些共同的信息。当然，这部分是简单的一个总要，我建议你读一些Android应用开发去获得一些更深的部分。
 

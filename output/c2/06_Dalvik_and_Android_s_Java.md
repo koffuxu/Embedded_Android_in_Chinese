@@ -1,7 +1,7 @@
 > 翻译：[Ross.Zeng](https://github.com/zengrx)
 > 校对：
 
-### Dalvik虚拟机与安卓下的Java
+# Dalvik 虚拟机与 Android 下的 Java
 
 简而言之，Dalvik就是安卓的java虚拟机。它允许安卓运行由java编写的应用和系统组件生成的字节码，并向系统提供所需的钩子和环境接口，包含原生链接库与原生用户空间。关于Dalvik和安卓品牌可以扯很远。但为了深入研究，首先需要掌握一些java基础。
 

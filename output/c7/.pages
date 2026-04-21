@@ -1,1 +1,13 @@
-title: 第7章 Android Framework
+title: 第6章 Android 框架层
+nav:
+  - "Android 框架层": 00_Android_框架层.md
+  - "什么是 Android 框架层": 01_什么是_Android_框架层.md
+  - "框架层的启动": 02_框架层的启动.md
+  - "系统服务": 03_系统服务.md
+  - "启动动画": 04_启动动画.md
+  - "Dex 优化": 05_Dex_优化.md
+  - "应用启动": 06_应用启动.md
+  - "工具和命令": 07_工具和命令.md
+  - "支持守护进程": 08_支持守护进程.md
+  - "硬件抽象层": 09_硬件抽象层.md
+# 说明：保留原始合并稿 07_Android_Framework.md（不在导航中），便于对照

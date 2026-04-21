@@ -2,7 +2,7 @@
 > 校对：
 
 
-## 得到"Android"
+# 得到"Android"
 
 想要让 Android 在嵌入式设备上运行，需要两样关键组件：一个与 Android 兼容的 Linux 内核，以及 Android 平台（Android Platform）。
 
