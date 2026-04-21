@@ -1,0 +1,36 @@
+site_name: Embedded Android（中文翻译）
+site_description: 《Embedded Android》中文翻译在线阅读
+site_url: https://koffuxu.github.io/Embedded_Android_in_Chinese/
+repo_url: https://github.com/koffuxu/Embedded_Android_in_Chinese
+repo_name: koffuxu/Embedded_Android_in_Chinese
+
+# 直接复用现有翻译产物目录，避免搬文件/改链接
+# 你后续如果想更“标准化”，再把 output/ 迁到 docs/ 也不迟
+# docs_dir 指向 output/ 后，MkDocs 会把里面的 .md 当作文档源
+# 非 .md（如 images/）会作为静态资源原样复制
+
+docs_dir: output
+use_directory_urls: false
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
