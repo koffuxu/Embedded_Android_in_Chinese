@@ -1,0 +1,10 @@
+nav:
+  - index.md
+  - c1
+  - c2
+  - c3
+  - c4
+  - c5
+  - c6
+  - c7
+# 说明：content_preface/、final/ 不放进导航；images/ 作为静态资源保留
