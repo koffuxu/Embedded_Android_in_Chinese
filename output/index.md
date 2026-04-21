@@ -1,6 +1,6 @@
 # Embedded Android（中文翻译）
 
-这是可夫（koffuxu）的《Embedded Android》中文翻译整理版，在线阅读站点由 MkDocs + Material 构建。
+这是可夫 [koffuxu](https://x.com/koffuxu) 的《Embedded Android》中文翻译整理版，在线阅读站点由 MkDocs + Material 构建。
 
 - 从左侧目录开始阅读
 - 如果你更喜欢“书籍模式”（连续长文），后续也可以再生成单页/导出 PDF
@@ -24,8 +24,6 @@
 当然，这本书所基于的 Android 版本与今天相比早已迭代巨大。即便翻译完成，它对当下开发者的直接参考价值也可能有限。
 
 但我仍想执意把它完成——为的不是追赶潮流，而是给 12 年前那个对软件世界充满期待的少年一个回响。
-
-> 我的 X： https://x.com/koffuxu
 
 ---
 
